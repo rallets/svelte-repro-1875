@@ -1,0 +1,23 @@
+@using System.Reflection
+@* ReSharper disable Html.PathError *@
+@* ReSharper disable Html.IdNotResolved *@
+@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html lang="nb-NO">
+
+<head>
+	<title>AR | Oversikt</title>
+	<meta name="viewport" content="width=device-width">
+	<base href="@Url.Action("Index", "View1")" />
+</head>
+
+<body ng-view>
+	<link href="~/build/style.css" asp-append-version="true" rel="stylesheet" />
+
+	<link href="~/build/view1.css" asp-append-version="true" rel="stylesheet" />
+	<script defer src="~/build/view1.js" asp-append-version="true"></script>
+</body>
+
+</html>

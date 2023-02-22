@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"baseUrl": "",
+		"target": "ES2022",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"declaration": false,
+		"noImplicitAny": false,
+		"removeComments": true,
+		"noLib": false,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"sourceMap": true,
+		"typeRoots": [
+			"node_modules/@types",
+			"Scripts/custom-types"
+		],
+		"paths": {}
+	},
+	"exclude": [
+		"App/*"
+	],
+	"compileOnSave": false
+}

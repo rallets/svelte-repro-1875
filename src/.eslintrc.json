@@ -1,0 +1,104 @@
+{
+	"ignorePatterns": [
+		"**/*.js"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": [
+			"**/tsconfig.svelte.json"
+		],
+		"extraFileExtensions": [
+			".svelte"
+		],
+		"sourceType": "module"
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/recommended-requiring-type-checking",
+		"plugin:svelte/recommended"
+	],
+	"rules": {
+		"@typescript-eslint/no-triple-slash-reference": "off",
+		"@typescript-eslint/no-namespace": "off",
+		//
+		// svelte rules
+		// svelte has some limitation in type-aware mode
+		//
+		"@typescript-eslint/ban-ts-comment": [
+			"error",
+			{
+				"ts-expect-error": true,
+				"ts-ignore": "allow-with-description",
+				"ts-nocheck": true,
+				"ts-check": false
+			}
+		],
+		"@typescript-eslint/no-unsafe-assignment": "off",
+		"@typescript-eslint/no-unsafe-argument": "off",
+		"@typescript-eslint/no-unsafe-member-access": "off",
+		"@typescript-eslint/restrict-template-expressions": [
+			"error",
+			{
+				"allowNumber": true,
+				"allowBoolean": false,
+				"allowAny": false,
+				"allowNullish": true,
+				"allowRegExp": false
+			}
+		],
+		"no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars": [
+			"warn", // or "error"
+			{
+				"argsIgnorePattern": "^_",
+				"varsIgnorePattern": "^_",
+				"caughtErrorsIgnorePattern": "^_"
+			}
+		],
+		"svelte/no-spaces-around-equal-signs-in-attribute": "warn",
+		"svelte/no-unused-svelte-ignore": "off",
+		"svelte/require-event-dispatcher-types": "warn",
+		"svelte/require-optimized-style-attribute": "warn",
+		"svelte/require-stores-init": "warn",
+		"svelte/spaced-html-comment": [
+			"warn",
+			"always" // or "never"
+		],
+		"no-trailing-spaces": "off", // Don't need ESLint's no-trailing-spaces rule, so turn it off.
+		"semi": "warn",
+		"svelte/no-trailing-spaces": [
+			"warn",
+			{
+				"skipBlankLines": false,
+				"ignoreComments": false
+			}
+		],
+		"svelte/valid-compile": "off"
+	},
+	"plugins": [
+		// "svelte3",
+		"@typescript-eslint"
+	],
+	"overrides": [
+		{
+			"files": [
+				"*.svelte"
+			],
+			"parser": "svelte-eslint-parser",
+			"parserOptions": {
+				"parser": "@typescript-eslint/parser"
+			}
+		}
+	],
+	"settings": {
+		"svelte3/typescript": true
+	},
+	"globals": {
+		// svelte reactive block $: does not recognize global variables, as in $: { console.log('...') }
+		"console": "readonly",
+		//
+		"window": "readonly",
+		"setTimeout": "readonly"
+	}
+}
